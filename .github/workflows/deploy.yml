@@ -2,7 +2,8 @@ name: Deploy To S3 And Invalidate Cloudfront
 
 on:
   push:
-    branches: -main
+    branches: 
+      -main
 
 jobs:
   deploy:
@@ -12,4 +13,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Repository 파일 출력하기
+        run: ls
+
+      - name: 빌드하기
+        run: npm run build
+
+      - name: Debugging
         run: ls
